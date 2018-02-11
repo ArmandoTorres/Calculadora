@@ -12,16 +12,17 @@ import java.util.List;
 
 public class MainActivity extends Activity implements View.OnClickListener{
 
-    private static final String OPERATOR = "x÷+-";
+    private static final String OPERATOR = "%x/+-";
     private static final String MULTIPLY = "x";
-    private static final String DIVIDE = "÷";
+    private static final String DIVIDE = "/";
     private static final String ADDITION = "+";
     private static final String SUBTRACTION = "-";
+    private static final String PERCENTAGE = "%";
 
     private EditText et_main;
     private Button btn_all_clear, btn_clear, btn_split, btn_seven, btn_eight, btn_nine,
             btn_multiply, btn_six, btn_five, btn_four, btn_minus, btn_one, btn_two, btn_three,
-            btn_plus, btn_zero, btn_point, btn_equals;
+            btn_plus, btn_zero, btn_point, btn_equals, btn_percentage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btn_zero = findViewById(R.id.btn_zero);
         btn_point = findViewById(R.id.btn_point);
         btn_equals = findViewById(R.id.btn_equals);
+        btn_percentage = findViewById(R.id.btn_percentage);
         btn_all_clear.setOnClickListener(this);
         btn_clear.setOnClickListener(this);
         btn_split.setOnClickListener(this);
@@ -66,6 +68,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btn_zero.setOnClickListener(this);
         btn_point.setOnClickListener(this);
         btn_equals.setOnClickListener(this);
+        btn_percentage.setOnClickListener(this);
     }
 
     private String clearOne(String text) {
@@ -83,7 +86,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
             switch (view.getId()) {
                 case R.id.btn_equals:
                     if (text != null && text != "" && text.length() > 0) {
-                        if (isNumeric(text.substring(text.length()-1)) && isNumeric(String.valueOf(text.charAt(0)))){
+                        if ( (isNumeric(text.substring(text.length()-1)) || text.substring(text.length()-1).equals(PERCENTAGE))
+                                && isNumeric(String.valueOf(text.charAt(0)))){
                             et_main.setText(calculate(text));
                         } else {
                             Toast.makeText(getApplicationContext(),R.string.invalid_format,Toast.LENGTH_LONG).show();
@@ -102,6 +106,17 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 case R.id.btn_multiply:
                 case R.id.btn_split:
                 case R.id.btn_plus:
+                    if (text != null && text != "" && text.length() > 0) {
+                        if (isNumeric(text.substring(text.length()-1))
+                                || text.substring(text.length()-1).equals(PERCENTAGE)){
+                            Object tag = view.getTag();
+                            if (tag != null && tag instanceof String){
+                                et_main.setText(text+(String)tag);
+                            }
+                        }
+                    }
+                    break;
+                case R.id.btn_percentage:
                     if (text != null && text != "" && text.length() > 0) {
                         if (isNumeric(text.substring(text.length()-1))){
                             Object tag = view.getTag();
@@ -150,7 +165,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     public String calculate(String input) {
 
         if (!(input.contains(MULTIPLY) || input.contains(DIVIDE) || input.contains(SUBTRACTION)
-                || input.contains(ADDITION))){
+                || input.contains(ADDITION) || input.contains(PERCENTAGE) )){
             return input;
         }
 
@@ -167,7 +182,29 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         double result = 0;
 
-        String[] operatorPair = new String[]{"x÷", "+-"};
+        //«Percentage»
+        if (elements.contains(PERCENTAGE)) {
+            for (int j = 0; j < elements.size(); j++) {
+                if (PERCENTAGE.contains(elements.get(j))) {
+                    if (elements.get(j).equals(PERCENTAGE)) {
+                        if (Double.parseDouble(elements.get(j - 1)) > 0) {
+                            result = Double.parseDouble(elements.get(j - 1))
+                                    / 100;
+                        }
+                    }
+                    elements.set(j - 1, String.valueOf(result));
+                    elements.remove(j);
+                    boolean b1 = elements.contains(PERCENTAGE);
+                    if (!b1) {
+                        break;
+                    } else {
+                        --j;
+                    }
+                }
+            }
+        }
+
+        String[] operatorPair = new String[]{"x/", "+-"};
 
         //«paréntesis, potencias, multiplicación, división, suma, resta»
         for (String operator : operatorPair) {
@@ -200,6 +237,14 @@ public class MainActivity extends Activity implements View.OnClickListener{
                         --j;
                     }
                 }
+            }
+        }
+
+        //Verifying if have decimal part.
+        if (result > 0){
+            double resultWithOutDecimal = result - Math.floor(result);
+            if (Math.abs(resultWithOutDecimal) == 0){
+                return String.valueOf((int)result);
             }
         }
 

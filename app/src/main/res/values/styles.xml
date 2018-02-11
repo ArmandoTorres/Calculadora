@@ -11,9 +11,9 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:background">@drawable/btn_selector</item>
-        <item name="android:layout_marginRight">5sp</item>
-        <item name="android:layout_marginLeft">5sp</item>
-        <item name="android:layout_marginTop">5sp</item>
+        <item name="android:layout_marginRight">1sp</item>
+        <item name="android:layout_marginLeft">1sp</item>
+        <item name="android:layout_marginTop">1sp</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">28sp</item>
     </style>
@@ -24,9 +24,9 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:background">@drawable/list_background_selector</item>
-        <item name="android:layout_marginRight">5sp</item>
-        <item name="android:layout_marginLeft">5sp</item>
-        <item name="android:layout_marginTop">5sp</item>
+        <item name="android:layout_marginRight">1sp</item>
+        <item name="android:layout_marginLeft">1sp</item>
+        <item name="android:layout_marginTop">1sp</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">28sp</item>
     </style>
