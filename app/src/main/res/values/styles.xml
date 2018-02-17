@@ -6,10 +6,9 @@
     </style>
 
     <style name="AppTheme.CalculatorBotton.LightGray" parent="AppTheme">
-        <item name="android:layout_columnWeight">1</item>
-        <item name="android:layout_rowWeight">1</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_weight">25</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:background">@drawable/btn_selector</item>
         <item name="android:layout_marginRight">1sp</item>
         <item name="android:layout_marginLeft">1sp</item>
@@ -19,10 +18,9 @@
     </style>
 
     <style name="AppTheme.CalculatorBotton.LightBlack" parent="AppTheme">
-        <item name="android:layout_columnWeight">1</item>
-        <item name="android:layout_rowWeight">1</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_weight">25</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:background">@drawable/list_background_selector</item>
         <item name="android:layout_marginRight">1sp</item>
         <item name="android:layout_marginLeft">1sp</item>

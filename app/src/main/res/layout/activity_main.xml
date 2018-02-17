@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBlack"
-    android:orientation="horizontal"
-    android:rowCount="6"
-    android:columnCount="4"
+    android:orientation="vertical"
     tools:context="com.sdq.android.MainActivity">
 
     <EditText
         android:id="@+id/et_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_columnSpan="4"
-        android:layout_rowSpan="2"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="0"
+        android:layout_height="0dp"
+        android:layout_weight="20"
         android:layout_gravity="end"
         android:maxLength="20"
         android:hint="@string/cero"
@@ -28,118 +23,158 @@
         android:focusable="false"
         android:layout_marginBottom="10dp"/>
 
-    <Button
-        android:id="@+id/btn_all_clear"
-        android:text="@string/all_clear"
-        android:layout_columnSpan="1"
-        style="@style/AppTheme.CalculatorBotton.LightGray"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btn_clear"
-        android:text="@string/clear"
-        style="@style/AppTheme.CalculatorBotton.LightGray"/>
+        <Button
+            android:id="@+id/btn_all_clear"
+            android:text="@string/all_clear"
+            style="@style/AppTheme.CalculatorBotton.LightGray"/>
 
-    <Button
-        android:id="@+id/btn_percentage"
-        android:text="@string/percentage"
-        android:tag="@string/percentage"
-        style="@style/AppTheme.CalculatorBotton.LightGray"/>
+        <Button
+            android:id="@+id/btn_clear"
+            android:text="@string/clear"
+            style="@style/AppTheme.CalculatorBotton.LightGray"/>
 
-    <Button
-        android:id="@+id/btn_split"
-        android:text="@string/split"
-        android:tag="@string/split"
-        style="@style/AppTheme.CalculatorBotton.LightGray"/>
+        <Button
+            android:id="@+id/btn_percentage"
+            android:text="@string/percentage"
+            android:tag="@string/percentage"
+            style="@style/AppTheme.CalculatorBotton.LightGray"/>
 
-    <Button
-        android:id="@+id/btn_seven"
-        android:text="@string/seven"
-        android:tag="@string/seven"
-        style="@style/AppTheme.CalculatorBotton.LightBlack"/>
+        <Button
+            android:id="@+id/btn_split"
+            android:text="@string/split"
+            android:tag="@string/split"
+            style="@style/AppTheme.CalculatorBotton.LightGray"/>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_eight"
-        android:text="@string/eight"
-        android:tag="@string/eight"
-        style="@style/AppTheme.CalculatorBotton.LightBlack"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btn_nine"
-        android:text="@string/nine"
-        android:tag="@string/nine"
-        style="@style/AppTheme.CalculatorBotton.LightBlack"/>
+        <Button
+            android:id="@+id/btn_seven"
+            android:text="@string/seven"
+            android:tag="@string/seven"
+            style="@style/AppTheme.CalculatorBotton.LightBlack"/>
 
-    <Button
-        android:id="@+id/btn_multiply"
-        android:text="@string/multiply"
-        android:tag="@string/multiply"
-        style="@style/AppTheme.CalculatorBotton.LightGray"/>
+        <Button
+            android:id="@+id/btn_eight"
+            android:text="@string/eight"
+            android:tag="@string/eight"
+            style="@style/AppTheme.CalculatorBotton.LightBlack"/>
 
-    <Button
-        android:id="@+id/btn_six"
-        android:text="@string/six"
-        android:tag="@string/six"
-        style="@style/AppTheme.CalculatorBotton.LightBlack"/>
+        <Button
+            android:id="@+id/btn_nine"
+            android:text="@string/nine"
+            android:tag="@string/nine"
+            style="@style/AppTheme.CalculatorBotton.LightBlack"/>
 
-    <Button
-        android:id="@+id/btn_five"
-        android:text="@string/five"
-        android:tag="@string/five"
-        style="@style/AppTheme.CalculatorBotton.LightBlack"/>
+        <Button
+            android:id="@+id/btn_multiply"
+            android:text="@string/multiply"
+            android:tag="@string/multiply"
+            style="@style/AppTheme.CalculatorBotton.LightGray"/>
 
-    <Button
-        android:id="@+id/btn_four"
-        android:text="@string/four"
-        android:tag="@string/four"
-        style="@style/AppTheme.CalculatorBotton.LightBlack"/>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_minus"
-        android:text="@string/minus"
-        android:tag="@string/minus"
-        style="@style/AppTheme.CalculatorBotton.LightGray"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btn_one"
-        android:text="@string/one"
-        android:tag="@string/one"
-        style="@style/AppTheme.CalculatorBotton.LightBlack"/>
+        <Button
+            android:id="@+id/btn_six"
+            android:text="@string/six"
+            android:tag="@string/six"
+            style="@style/AppTheme.CalculatorBotton.LightBlack"/>
 
-    <Button
-        android:id="@+id/btn_two"
-        android:text="@string/two"
-        android:tag="@string/two"
-        style="@style/AppTheme.CalculatorBotton.LightBlack"/>
+        <Button
+            android:id="@+id/btn_five"
+            android:text="@string/five"
+            android:tag="@string/five"
+            style="@style/AppTheme.CalculatorBotton.LightBlack"/>
 
-    <Button
-        android:id="@+id/btn_three"
-        android:text="@string/three"
-        android:tag="@string/three"
-        style="@style/AppTheme.CalculatorBotton.LightBlack"/>
+        <Button
+            android:id="@+id/btn_four"
+            android:text="@string/four"
+            android:tag="@string/four"
+            style="@style/AppTheme.CalculatorBotton.LightBlack"/>
 
-    <Button
-        android:id="@+id/btn_plus"
-        android:text="@string/plus"
-        android:tag="@string/plus"
-        style="@style/AppTheme.CalculatorBotton.LightGray"/>
+        <Button
+            android:id="@+id/btn_minus"
+            android:text="@string/minus"
+            android:tag="@string/minus"
+            style="@style/AppTheme.CalculatorBotton.LightGray"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_one"
+            android:text="@string/one"
+            android:tag="@string/one"
+            style="@style/AppTheme.CalculatorBotton.LightBlack"/>
+
+        <Button
+            android:id="@+id/btn_two"
+            android:text="@string/two"
+            android:tag="@string/two"
+            style="@style/AppTheme.CalculatorBotton.LightBlack"/>
+
+        <Button
+            android:id="@+id/btn_three"
+            android:text="@string/three"
+            android:tag="@string/three"
+            style="@style/AppTheme.CalculatorBotton.LightBlack"/>
+
+        <Button
+            android:id="@+id/btn_plus"
+            android:text="@string/plus"
+            android:tag="@string/plus"
+            style="@style/AppTheme.CalculatorBotton.LightGray"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal">
 
     <Button
         android:id="@+id/btn_zero"
         android:text="@string/zero"
         android:tag="@string/zero"
+        android:layout_weight="25"
         style="@style/AppTheme.CalculatorBotton.LightBlack"/>
 
     <Button
         android:id="@+id/btn_point"
         android:text="@string/point"
         android:tag="@string/point"
+        android:layout_weight="25"
         style="@style/AppTheme.CalculatorBotton.LightBlack"/>
 
     <Button
         android:id="@+id/btn_equals"
-        android:layout_columnSpan="2"
         android:text="@string/equals"
+        android:layout_weight="50"
         style="@style/AppTheme.CalculatorBotton.LightBlack"
         android:background="@color/colorLighBlue"/>
 
-</GridLayout>
+    </LinearLayout>
+
+</LinearLayout>
